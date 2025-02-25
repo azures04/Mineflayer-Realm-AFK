@@ -1,0 +1,19 @@
+diff --git a/node_modules/mineflayer/lib/plugins/entities.js b/node_modules/mineflayer/lib/plugins/entities.js
+index 86dd361..da3f0ae 100644
+--- a/node_modules/mineflayer/lib/plugins/entities.js
++++ b/node_modules/mineflayer/lib/plugins/entities.js
+@@ -832,12 +832,12 @@ function inject (bot) {
+ 
+     for (const passengerEntity of passengerEntities) {
+       const originalVehicle = passengerEntity.vehicle
+-      if (originalVehicle !== null) {
++      if (vehicle && originalVehicle !== null) {
+         const index = originalVehicle.passengers.indexOf(passengerEntity)
+         originalVehicle.passengers = originalVehicle.passengers.splice(index, 1)
+       }
+       passengerEntity.vehicle = vehicle
+-      if (vehicle !== null) {
++      if (vehicle && vehicle != null) {
+         vehicle.passengers.push(passengerEntity)
+       }
+     }
